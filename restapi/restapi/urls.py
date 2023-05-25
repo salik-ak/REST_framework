@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from api import views
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    path('register',views.register.as_view(),name='register')
+    path('register/',views.register.as_view(),name='register'),
+    path('login/',obtain_auth_token,name="login"),
+    # path('welcome/',views.welcome.as_view(),name="welcome"),
 ]
